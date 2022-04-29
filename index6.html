@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta name="viewport" content="with=device-width",initial-scale=1/>
+    <title>運動成就 </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqery/3.0.0/jquery.min,js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></Script>
+        <meta charset="UTF-8">
+        <title>ClayAtlas-HTML</title>
+    </head>
+    <body>
+        <!--  
+    <div style="background-color:#fffafa;">-->
+        <div class ="row" style="margin:10px">
+            <div class="col-12" style="margin:10px">
+                <table class="table table-info table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">運動</th>
+                        <th scope="col">時間</th>
+                        <th scope="col">完成</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>慢跑</td>
+                        <td>30分鐘</td>
+                        <td><div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">完成</label>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>游泳</td>
+                        <td>40分鐘</td>
+                        <td><div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">完成</label>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>騎腳踏車</td>
+                        <td>一小時</td>
+                        <td><div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">完成</label>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>有氧舞蹈</td>
+                        <td>一小時</td>
+                        <td><div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">完成</label>
+                          </div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+        </div>
+        </div>
+        <script>
+            function initializeLiff(myLiffId){
+                liff,init({liffId: myLiffId});
+            }
+            function pushMsg(pdate){
+                if(pdate == ''){
+                    alert('每個項目都要輸入!')
+                }
+                var msg ="###";
+                msg=msg+pdate
+                liff.sendMessages([//推播訊息
+                {
+                    type:'text',
+                    text:msg
+                }])
+                .then(() => {
+                    liff.closeWindow();
+                });
+            }
+            $(Document).ready(function(){
+                initializeLiff('{{liffid}}');
+                $('#new').click(function(e){
+                    pushMsg($('#date').val());
+                });
+            });
+
+            $(document).ready(function () {
+                const liffId = "";
+                initializeLiff(liffId);
+            })
+    
+            function initializeLiff(liffId) {
+                liff.init({
+                    liffId: liffId
+                }).then(() => {
+                    initializeApp();
+                }).catch((err) => {
+                    console.log('LIFF Initialization failed ', err);
+                });
+            }
+        </script>
