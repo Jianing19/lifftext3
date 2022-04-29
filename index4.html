@@ -34,3 +34,44 @@
             </div>
         </div>
         </div>
+        <script>
+            function initializeLiff(myLiffId){
+                liff,init({liffId: myLiffId});
+            }
+            function pushMsg(pdate){
+                if(pdate == ''){
+                    alert('每個項目都要輸入!')
+                }
+                var msg ="###";
+                msg=msg+pdate
+                liff.sendMessages([//推播訊息
+                {
+                    type:'text',
+                    text:msg
+                }])
+                .then(() => {
+                    liff.closeWindow();
+                });
+            }
+            $(Document).ready(function(){
+                initializeLiff('{{liffid}}');
+                $('#new').click(function(e){
+                    pushMsg($('#date').val());
+                });
+            });
+
+            $(document).ready(function () {
+                const liffId = "1656983506-Z8xg0WVg";
+                initializeLiff(liffId);
+            })
+    
+            function initializeLiff(liffId) {
+                liff.init({
+                    liffId: liffId
+                }).then(() => {
+                    initializeApp();
+                }).catch((err) => {
+                    console.log('LIFF Initialization failed ', err);
+                });
+            }
+        </script>
