@@ -9,7 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></Script>
         <meta charset="UTF-8">
         <title>ClayAtlas-HTML</title>
-        
+        <script> 
+            function loadXMLDoc() 
+                { 
+                document.getElementById("myDiv").innerHTML = "<h2>雞腿</h2>雞腿100.0g<br><br><h2>滷雞腿</h2>滷雞腿100.0g<br><br><h2>雞腿</h2>全家,1隻<br><br><h2>雞腿便當</h2>全家雞腿便當1份<br><br><h2><h2>COSTCO</h2>雞腿100.0g<br><br><h2>招牌雞腿便當</h2>招牌雞腿便當1份"  
+                } 
+                </script> 
     </head>
     <body>
         <!--  
@@ -21,13 +26,15 @@
                     <div class="col-auto">
                       <input type="search" id="search" class="form-control" aria-describedby="search">
                     </div>
-                    <div class="col-auto">
+                   <!-- <div class="col-auto">
                         <input type ="button" name="Submit" value="查詢" class="btn btn-info" />
-                    </div>
+                    </div>-->
+                    
+     <button type="button" style="background-color:#DDF3FF" border:3px info double  onclick="loadXMLDoc()">查詢</button> 
                   </div>
                     <br />  
                     <br><br>
-                <label>搜尋結果</label>
+                    <div id="myDiv"><h2>搜尋結果</h2></div> 
                 <hr>
                 <br />
                 </body>
