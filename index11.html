@@ -37,15 +37,15 @@
             liff.init({liffId: myLiffId });
         } 
         
-    function pushMsg (pdate, psport, pinputnumber) { 
-        if (pdate == '' || psport == '' || pinputnumber == '' ){ // 資料檢查
+    function pushMsg (pdate, pinputnumber, psport) { 
+        if (pdate == '' || pinputnumber == '' || psport == '' ){ // 資料檢查
             alert(' 每個項目都必須輸入! '); 
             return; 
         } 
         var msg = "###"; // 回傳訊息字串 
         msg = msg + pdate + "/"; 
-        msg = msg + psport + "/";
         msg = msg + pinputnumber + "/";
+        msg = msg + psport + "/";
         liff.sendMessages ([// 推播訊息
            { type: 'text', 
              text: msg 
@@ -58,7 +58,7 @@
     $(document).ready(function () { 
         initializeLiff('{{ liffid }}'); // 接收傳遞的liffid參數
         $('#sure').click(function (e) { // 按下確定紐
-            pushMsg ($('#date').val(), $('#date').val(),$('#inputnumber').val()); 
+            pushMsg ($('#date').val(), $('#inputnumber').val(),$('#sport').val()); 
         }); 
     }); 
 </script>
