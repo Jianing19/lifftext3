@@ -9,16 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></Script>
         <meta charset="UTF-8">
         <title>ClayAtlas-HTML</title>
-        <script> 
-            function loadXMLDoc() 
-                { 
-                document.getElementById("myDiv").innerHTML = "<h2>雞腿</h2>雞腿100.0g<br><br><h2>滷雞腿</h2>滷雞腿100.0g<br><br><h2>雞腿</h2>全家,1隻<br><br><h2>雞腿便當</h2>全家雞腿便當1份<br><br><h2><h2>COSTCO</h2>雞腿100.0g<br><br><h2>招牌雞腿便當</h2>招牌雞腿便當1份"  
-                } 
-                </script> 
     </head>
-    <body>
-        <!--  
-    <div style="background-color:#fffafa;">-->
+    <body>  
         <div class ="row" style="margin:10px">
             <div class="col-12" style="margin:10px">
                 <font size=5>加入產品</font><br><br><br>
@@ -29,19 +21,45 @@
                    <!-- <div class="col-auto">
                         <input type ="button" name="Submit" value="查詢" class="btn btn-info" />
                     </div>-->
-                    
-     <button type="button" style="background-color:#DDF3FF" border:3px info double  onclick="loadXMLDoc()">查詢</button> 
+                <input type="button" value="查詢" onclick="listBtn()"> 
                   </div>
                     <br />  
                     <br><br>
-                    <div id="myDiv"><h2>搜尋結果</h2></div> 
+                    <div id="myDiv"><h3>搜尋結果</h3></div> <br>
+                    <div id="textlistn" style="display:none;">
+                        <h2>雞腿</h2>
+                        <input type="button" style="float:right" value="新增" onclick="location.href='index5.html'"/>
+                        雞腿 100.0g<br><br>
+                        <h2>滷雞腿</h2>
+                        <input type="button" style="float:right" value="新增" onclick="location.href=''"/>
+                        滷雞腿 100.0g<br><br>
+                        <h2>雞腿</h2>
+                        <input type="button" style="float:right" value="新增" onclick="location.href=''"/>
+                        全家/1隻<br><br>
+                        <h2>雞腿便當</h2>
+                        <input type="button" style="float:right" value="新增" onclick="location.href=''"/>
+                        全家雞腿便當/1份<br><br>
+                    </div>
+                    <script>
+                    function listBtn() {
+                      var listBtn = document.getElementById('listBtn');
+                      var textlistn = document.getElementById('textlistn');
+                      if (textlistn.style.display === 'none') {
+                        textlistn.style.display = 'block';
+                        listBtn.innerText = "";
+                      } else {
+                        textlistn.style.display = 'none';
+                        listBtn.innerText = "秀出來";
+                      }
+                    }
+                    </script>
+                    
                 <hr>
-                <br />
                 </body>
             </div>
         </div>
         </div>
-        <script>
+       <script>
             function initializeLiff(myLiffId){
                 liff,init({liffId: myLiffId});
             }
