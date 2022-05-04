@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta name="viewport" content="with=device-width",initial-scale=1/>
+    <title>加入產品 </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqery/3.0.0/jquery.min,js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></Script>
+        <meta charset="UTF-8">
+        <title>ClayAtlas-HTML</title>
+    </head>
+    <body>
+        <!--  
+    <div style="background-color:#fffafa;">-->
+        <div class ="row" style="margin:10px">
+            <div class="col-12" style="margin:10px">
+                <font size=5>加入產品</font><br><br><br>
+                <div class="mb-3 row">
+                    <label for="inputname" class="col-sm-2 col-form-label">名稱</label>
+                    <div class="col-sm-10">
+                      <input type="name" class="form-control" id="inputname" value="雞腿">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputnumber" class="col-sm-2 col-form-label">份數</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" id="inputnumber">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputnumber1" class="col-sm-2 col-form-label">每一份量</label>
+                    <div class="col-sm-10">
+                      <input type="number1" class="form-control" id="inputnumber1">
+                    </div>
+                  </div>
+                <div class="mb-3 row">
+                    <label for="inputcal" class="col-sm-2 col-form-label">卡路里</label>
+                    <div class="col-sm-10">
+                      <input type="cal" class="form-control" id="inputcal">
+                    </div>
+                  </div>
+                  <center><input type ="button" name="Submit" value="送出" class="btn btn-info"/></center>
+
+        </div>
+        </div>
+        <script>
+            function initializeLiff(myLiffId){
+                liff,init({liffId: myLiffId});
+            }
+            function pushMsg(pdate){
+                if(pdate == ''){
+                    alert('每個項目都要輸入!')
+                }
+                var msg ="###";
+                msg=msg+pdate
+                liff.sendMessages([//推播訊息
+                {
+                    type:'text',
+                    text:msg
+                }])
+                .then(() => {
+                    liff.closeWindow();
+                });
+            }
+            $(Document).ready(function(){
+                initializeLiff('{{liffid}}');
+                $('#new').click(function(e){
+                    pushMsg($('#date').val());
+                });
+            });
+
+            $(document).ready(function () {
+                const liffId = "";
+                initializeLiff(liffId);
+            })
+    
+            function initializeLiff(liffId) {
+                liff.init({
+                    liffId: liffId
+                }).then(() => {
+                    initializeApp();
+                }).catch((err) => {
+                    console.log('LIFF Initialization failed ', err);
+                });
+            }
+        </script>
