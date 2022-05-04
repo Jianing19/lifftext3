@@ -13,7 +13,7 @@
             <div class="mb-3 row">
                 <label for="name" class="col-sm-2 col-form-label">名稱</label>
                 <div class="col-sm-10">
-                  <input type="name" class="form-control" value="雞腿">
+                  <input type="name" class="form-control" value="雞腿" id="name">
                 </div>
               </div>
               <br />
@@ -45,16 +45,16 @@
             liff.init({liffId: myLiffId });
         } 
         
-    function pushMsg (pname, pnumber, pnumber1,pcal) { 
-        if (pname == '' || pnumber == '' || pnumber1 == '' || pcal == '' ){ // 資料檢查
+    function pushMsg (pname, pinputnumber, pinputnumber1,pinputcal) { 
+        if (pname == '' || pinputnumber == '' || pinputnumber1 == '' || pinputcal == '' ){ // 資料檢查
             alert(' 每個項目都必須輸入! '); 
             return; 
         } 
         var msg = "///"; // 回傳訊息字串 
         msg = msg + pname + "/"; 
-        msg = msg + pnumber + "/";
-        msg = msg + pnumber1 + "/";
-        msg = msg + pcal + "/";
+        msg = msg + pinputnumber + "/";
+        msg = msg + pinputnumber1 + "/";
+        msg = msg + pinputcal + "/";
         liff.sendMessages ([// 推播訊息
            { type: 'text', 
              text: msg 
@@ -67,7 +67,7 @@
     $(document).ready(function () { 
         initializeLiff('{{ liffid }}'); // 接收傳遞的liffid參數
         $('#sure').click(function (e) { // 按下確定紐
-            pushMsg ($('#name').val(), $('#number').val(),$('#number1').val(),$('#cal').val()); 
+            pushMsg ($('#name').val(), $('#inputnumber').val(),$('#inputnumber1').val(),$('#inputcal').val()); 
         }); 
     }); 
 </script>
